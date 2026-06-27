@@ -76,19 +76,19 @@
 <ol>
   <li>Clone the Repository</li>
   git clone https://github.com/bakshikul/Personal-Blog-Website.git<br>
-  cd Personal-Blog-Website
+  cd Personal-Blog-Website<br>
   <li>Create a Virtual Environment</li>
   <p>python -m venv venv<br>
   venv\Scripts\activate<br>
   Linux / macOS<br>
   python3 -m venv venv<br>
-  source venv/bin/activate</p>
+  source venv/bin/activate</p><br>
   <li>Install Dependencies</li>
-  <p>pip install -r requirements.txt</p>
+  <p>pip install -r requirements.txt</p><br>
   <li>Run the Application</li>
-  <p>python app.py</p>
+  <p>python app.py</p><br>
   <p>The application will be available at:<br>
-  http://127.0.0.1:5000/</p>
+  http://127.0.0.1:5000/</p><br>
 </ol>
 <h2>🤝 Contributing</h2>
 <p>Contributions are welcome!</p>
