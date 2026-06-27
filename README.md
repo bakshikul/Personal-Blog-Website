@@ -76,7 +76,7 @@
 <ol>
   <li>Clone the Repository</li>
   git clone https://github.com/bakshikul/Personal-Blog-Website.git<br>
-  cd Personal-Blog-Website<br>
+  cd Personal-Blog-Website<br><br>
   <li>Create a Virtual Environment</li>
   <p>python -m venv venv<br>
   venv\Scripts\activate<br>
