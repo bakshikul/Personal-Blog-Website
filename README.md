@@ -86,7 +86,7 @@
   <li>Install Dependencies</li>
   <p>pip install -r requirements.txt</p>
   <li>Run the Application</li>
-  <p>python app.py</p><br>
+  <p>python app.py</p>
   <p>The application will be available at:
   http://127.0.0.1:5000/</p><br>
 </ol>
