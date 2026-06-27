@@ -82,9 +82,9 @@
   venv\Scripts\activate<br>
   Linux / macOS<br>
   python3 -m venv venv<br>
-  source venv/bin/activate</p><br>
+  source venv/bin/activate</p>
   <li>Install Dependencies</li>
-  <p>pip install -r requirements.txt</p><br>
+  <p>pip install -r requirements.txt</p>
   <li>Run the Application</li>
   <p>python app.py</p><br>
   <p>The application will be available at:<br>
