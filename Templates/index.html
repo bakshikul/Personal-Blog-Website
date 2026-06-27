@@ -1,0 +1,133 @@
+{% extends "base.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block css %}
+<style>
+
+.page-title{
+    text-align:center;
+    margin-bottom:40px;
+    font-size:2.5rem;
+    font-weight:700;
+    color:#4f46e5;
+}
+
+.welcome{
+    font-size:1.2rem;
+    font-weight:600;
+    margin-bottom:30px;
+}
+
+.blog-card{
+    border:none;
+    border-radius:18px;
+    overflow:hidden;
+    box-shadow:0 8px 20px rgba(0,0,0,.08);
+    transition:.35s;
+    height:100%;
+}
+
+.blog-card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 18px 35px rgba(0,0,0,.18);
+}
+
+.blog-card img{
+    width:100%;
+    height:220px;
+    object-fit:cover;
+}
+
+.blog-card .card-body{
+    display:flex;
+    flex-direction:column;
+    padding:22px;
+}
+
+.blog-card .card-title{
+    font-size:1.4rem;
+    font-weight:700;
+    color:#222;
+}
+
+.blog-card .card-text{
+    color:#6b7280;
+    margin:15px 0;
+    line-height:1.6;
+    flex-grow:1;
+}
+
+.author{
+    font-weight:600;
+    color:#4f46e5;
+    margin-bottom:18px;
+}
+
+.read-btn{
+    text-decoration:none;
+    text-align:center;
+    background:linear-gradient(135deg,#4f46e5,#7c3aed);
+    color:#fff;
+    padding:10px;
+    border-radius:10px;
+    transition:.3s;
+}
+
+.read-btn:hover{
+    color:#fff;
+    transform:scale(1.03);
+}
+
+</style>
+{% endblock %}
+
+{% block content %}
+
+{% if 'user' in session %}
+<div class="welcome">
+    Welcome, {{ session['user'][:9] }} 👋
+</div>
+{% endif %}
+
+<h1 class="page-title">📚 All Blogs</h1>
+
+<div class="row g-4">
+
+    {% for blog in blogs %}
+
+    <div class="col-lg-4 col-md-6">
+
+        <div class="card blog-card">
+
+            <img src="https://picsum.photos/400/250?random={{ blog.id }}"
+     alt="Blog Image">
+
+            <div class="card-body">
+
+                <h5 class="card-title">{{ blog.title }}</h5>
+
+                <p class="card-text">
+                    {{ blog.description[:20] }}...
+                </p>
+
+                <p class="author">
+                    ✍ {{ blog.author }}
+                </p>
+
+                <a href="{{ url_for('blogdetails', blog_id=blog.id) }}"
+                   class="read-btn">
+                    Read More →
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    {% endfor %}
+
+</div>
+
+{% endblock %}
