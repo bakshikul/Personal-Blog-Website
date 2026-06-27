@@ -87,7 +87,7 @@
   <p>pip install -r requirements.txt</p>
   <li>Run the Application</li>
   <p>python app.py</p><br>
-  <p>The application will be available at:<br>
+  <p>The application will be available at:
   http://127.0.0.1:5000/</p><br>
 </ol>
 <h2>🤝 Contributing</h2>
@@ -102,6 +102,14 @@
   <p>git push origin feature-name</p>
   <li>Open a Pull Request</li>
 </ol>
+<h2>🔒 Authentication</h2>
+<p>Passwords are securely hashed before being stored in the database.</p>
+<p>Authenticated users can:</p>
+<ul>
+  <li>Create blog posts</li>
+  <li>Delete their posts</li>
+  <li>Log out securely</li>
+</ul>
 <h2>📜 License</h2>
 <p>This project is licensed under the MIT License.</p>
 <h2>👨‍💻 Author</h2>
