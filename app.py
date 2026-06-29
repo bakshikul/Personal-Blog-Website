@@ -11,8 +11,12 @@ db = SQLAlchemy(app)
 
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(100), nullable=False)
     username = db.Column(db.String(100), unique=True, nullable=False)
     password = db.Column(db.String(100), nullable=False)
+    bio = db.Column(db.Text, nullable=True)
+    url = db.Column(db.Text, nullable=True)
+    git = db.Column(db.Text, nullable=True)
 
 class Blog(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -33,12 +37,16 @@ def home():
 @app.route('/register', methods = ["GET","POST"])
 def register():
     if request.method == "POST":
+        name = request.form.get('name')
         username = request.form.get('username')
         password = request.form.get('password')
+        bio = request.form.get('bio')
+        url = request.form.get('url')
+        git = request.form.get('git')
         new_password = generate_password_hash(password = password)
         user = User.query.filter_by(username = username).first()
         if not user:
-            new_user = User(username = username , password = new_password)
+            new_user = User(name = name ,username = username , password = new_password,bio = bio, url= url , git = git)
             db.session.add(new_user)
             db.session.commit()
             return redirect('/login')
@@ -78,6 +86,18 @@ def create_blog():
 def blogdetails(blog_id):
     blog = Blog.query.get_or_404(blog_id)
     return render_template('details.html', blog=blog)
+
+@app.route('/accounts')
+def account():
+    user = User.query.filter_by(username=session['user']).first_or_404()
+    blogs = Blog.query.filter_by(author=user.username).all()
+    return render_template(
+        'account.html',
+        user=user,
+        blogs=blogs
+    )
+
+
 
 @app.route('/delete-blog/<int:blog_id>' , methods = ['POST','GET'])
 def deleteblog(blog_id):

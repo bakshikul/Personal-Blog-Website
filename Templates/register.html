@@ -52,12 +52,21 @@
 <div class="register-container">
   <h1>Register User</h1>
   <form action="/register" method="POST">
+    <div class="mb-3"> <label for="name" class="form-label">Name</label> <input type="text" id="name"
+        name="name" class="form-control" required>
+    </div>
     <div class="mb-3"> <label for="username" class="form-label">Email Address</label> <input type="email" id="username"
         name="username" class="form-control" required>
       <div class="form-text"> We'll never share your email with anyone else. </div>
     </div>
     <div class="mb-3"> <label for="password" class="form-label">Password</label> <input type="password" id="password"
         name="password" class="form-control" required> </div>
+    <div class="mb-3"> <label for="bio" class="form-label">Bio</label> <textarea type="text" id="bio"
+        name="bio" class="form-control"></textarea></div>
+    <div class="mb-3"> <label for="url" class="form-label">Website Url</label> <input type="text" id="url"
+        name="url" class="form-control"></div>
+    <div class="mb-3"> <label for="git" class="form-label">GitHub Url</label><input type="text" id="git"
+        name="git" class="form-control"></div>
     <div class="mb-3 form-check"> <input type="checkbox" class="form-check-input" id="check"> <label
         class="form-check-label" for="check"> Check me out </label> </div> <button type="submit"
       class="btn btn-primary"> Register </button>

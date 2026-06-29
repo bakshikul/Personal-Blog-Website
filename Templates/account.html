@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>My Account</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        body{
+            background: linear-gradient(135deg,#f5f7fa,#d7e1ec);
+            font-family: 'Segoe UI',sans-serif;
+        }
+
+        .profile-card{
+            max-width:750px;
+            margin:60px auto;
+            background:white;
+            border-radius:20px;
+            padding:40px;
+            box-shadow:0 15px 35px rgba(0,0,0,.12);
+            transition:.3s;
+        }
+
+        .profile-card:hover{
+            transform:translateY(-5px);
+        }
+
+        .profile-img{
+            width:170px;
+            height:170px;
+            border-radius:50%;
+            object-fit:cover;
+            border:6px solid #0d6efd;
+            box-shadow:0 10px 25px rgba(0,0,0,.2);
+        }
+
+        .bio{
+            color:#555;
+            line-height:1.8;
+            text-align:justify;
+        }
+
+        .stats{
+            display:flex;
+            justify-content:space-around;
+            margin:35px 0;
+        }
+
+        .stat-box{
+            text-align:center;
+        }
+
+        .stat-box h3{
+            color:#0d6efd;
+            margin-bottom:0;
+        }
+
+        .social-btn{
+            margin:8px;
+            padding:10px 25px;
+            border-radius:30px;
+            transition:.3s;
+        }
+
+        .social-btn:hover{
+            transform:scale(1.05);
+        }
+
+        .quote{
+            background:#f8f9fa;
+            border-left:5px solid #0d6efd;
+            padding:18px;
+            border-radius:10px;
+            font-style:italic;
+            color:#555;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="profile-card text-center">
+
+        <img src="../static/images/user.jpeg" class="profile-img mb-4">
+
+        <h2 class="fw-bold">{{user.name}}</h2>
+
+        <p class="text-muted">Blogger • AI/ML Enthusiast • Developer</p>
+
+        <hr>
+
+        <h4>About Me</h4>
+
+        <p class="bio">
+            {{user.bio}}
+        </p>
+
+        <div class="stats">
+
+            <div class="stat-box">
+                <h3>{{ blogs|length }}</h3>
+                <small>Blogs</small>
+            </div>
+
+            <div class="stat-box">
+                <h3>100%</h3>
+                <small>Learning</small>
+            </div>
+
+            <div class="stat-box">
+                <h3>∞</h3>
+                <small>Ideas</small>
+            </div>
+
+        </div>
+
+        <div class="quote">
+            "Code, Learn, Write, Repeat. Every line of code and every blog tells a story."
+        </div>
+
+        <hr>
+
+        <h4 class="mb-3">Connect With Me</h4>
+
+        <a href="{{user.url}}"
+           class="btn btn-primary social-btn"
+           target="_blank">
+            🌐 Portfolio
+        </a>
+
+        <a href="{{user.git}}"
+           class="btn btn-dark social-btn"
+           target="_blank">
+            💻 GitHub
+        </a>
+
+        <a href="{{user.username}}"
+           class="btn btn-danger social-btn">
+            📧 Email
+        </a>
+
+        <div class="mt-5">
+            <a href="{{ url_for('home') }}" class="btn btn-outline-primary">
+                ← Back to Home
+            </a>
+
+            <a href="{{ url_for('create_blog') }}" class="btn btn-success">
+                ✍ Create Blog
+            </a>
+        </div>
+
+    </div>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
